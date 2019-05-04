@@ -1,7 +1,7 @@
 package com.example.appapi.model.especies
 
-import com.example.appapi.model.pessoas.Pessoas
 import com.example.appapi.model.film.Filmes
+import com.example.appapi.model.pessoas.Pessoas
 
 data class Especies(
         val average_height: String?, // 100
