@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.appapi.api.Api
+import com.example.appapi.model.especies.ResultadoEspecies
 import com.example.appapi.model.film.Filmes
 import com.example.appapi.model.film.FilmesResultado
+import com.example.appapi.model.naveespacial.ResultadoNaveEspacial
 import com.example.appapi.model.pessoas.PessoasResultados
 import com.example.appapi.model.planetas.ResultadoPlanetas
+import com.example.appapi.model.veiculos.ResultadoVeiculos
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         val call = apiServices.listFilmes()
         val callPlanetas = apiServices.listPlanetas()
         val callPessoas = apiServices.listPessoas()
+        val callEspecies = apiServices.listEspecies()
+        val callVeiculos = apiServices.listVeiculos()
+        val callNave = apiServices.listNave()
 
         btnFilmes.setOnClickListener { clickFilmes(call) }
 
@@ -40,11 +46,81 @@ class MainActivity : AppCompatActivity() {
 
         btnPessoas.setOnClickListener { clickPessoas(callPessoas) }
 
+        btnEspecies.setOnClickListener { clickEspecies(callEspecies) }
+
+        btnVeiculos.setOnClickListener { clickVeiculos(callVeiculos) }
+
+        btnNave.setOnClickListener { clickNave(callNave) }
 
 
 
 
+    }
 
+    private fun clickNave(callNave: Call<ResultadoNaveEspacial>) {
+        callNave.enqueue(object : Callback<ResultadoNaveEspacial>{
+            override fun onFailure(call: Call<ResultadoNaveEspacial>, t: Throwable) {
+                texto.setText("Erro")
+            }
+
+            override fun onResponse(call: Call<ResultadoNaveEspacial>, response: Response<ResultadoNaveEspacial>) {
+                val contNave = response.body()!!.results
+                val sizeNave = contNave.size
+
+                var naveRespostas = ""
+
+                for (i in 0 .. sizeNave-1){
+                    naveRespostas = "${naveRespostas} - ${contNave[i].name}\n"
+                }
+
+                texto.setText(naveRespostas)
+            }
+
+        })
+    }
+
+    private fun clickVeiculos(callVeiculos: Call<ResultadoVeiculos>) {
+        callVeiculos.enqueue(object : Callback<ResultadoVeiculos>{
+            override fun onFailure(call: Call<ResultadoVeiculos>, t: Throwable) {
+                texto.setText("Erro")
+            }
+
+            override fun onResponse(call: Call<ResultadoVeiculos>, response: Response<ResultadoVeiculos>) {
+                val contVeiculos = response.body()!!.results
+                val sizeVeiculos = contVeiculos.size
+
+                var veiculosRespostas = ""
+
+                for (i in 0 .. sizeVeiculos-1){
+                    veiculosRespostas = "${veiculosRespostas} - ${contVeiculos[i].name}\n"
+                }
+
+                texto.setText(veiculosRespostas)
+            }
+
+        })
+    }
+
+    private fun clickEspecies(callEspecies: Call<ResultadoEspecies>) {
+        callEspecies.enqueue(object : Callback<ResultadoEspecies>{
+            override fun onFailure(call: Call<ResultadoEspecies>, t: Throwable) {
+                texto.setText("Erro")
+            }
+
+            override fun onResponse(call: Call<ResultadoEspecies>, response: Response<ResultadoEspecies>) {
+                val contEspecies = response.body()!!.results
+                val sizeEspecies = contEspecies.size
+
+                var especiesRespostas = ""
+
+                for (i in 0 .. sizeEspecies -1){
+                    especiesRespostas = "${especiesRespostas} - ${contEspecies[i].name}\n"
+                }
+
+                texto.setText(especiesRespostas)
+            }
+
+        })
     }
 
     private fun clickPessoas(callPessoas: Call<PessoasResultados>) {

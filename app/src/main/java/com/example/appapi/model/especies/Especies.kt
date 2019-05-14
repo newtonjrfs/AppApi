@@ -1,22 +1,19 @@
 package com.example.appapi.model.especies
 
-import com.example.appapi.model.film.Filmes
-import com.example.appapi.model.pessoas.Pessoas
-
 data class Especies(
-        val average_height: String?, // 100
-        val average_lifespan: String?, // unknown
-        val classification: String?, // mammal
-        val created: String?, // 2014-12-19T17:53:11.214000Z
-        val designation: String?, // sentient
-        val edited: String?, // 2014-12-20T21:36:42.167000Z
-        val eye_colors: String?, // yellow, blue
-        val films: List<Filmes>?,
-        val hair_colors: String?, // none
-        val homeworld: String?, // https://swapi.co/api/planets/35/
-        val language: String?, // Dugese
-        val name: String?, // Dug
-        val people: List<Pessoas>?,
-        val skin_colors: String?, // brown, purple, grey, red
-        val url: String? // https://swapi.co/api/species/14/
+    val average_height: String?, // 210
+    val average_lifespan: String?, // 400
+    val classification: String?, // mammal
+    val created: String?, // 2014-12-10T16:44:31.486000Z
+    val designation: String?, // sentient
+    val edited: String?, // 2015-01-30T21:23:03.074598Z
+    val eye_colors: String?, // blue, green, yellow, brown, golden, red
+    val films: List<String?>?,
+    val hair_colors: String?, // black, brown
+    val homeworld: String?, // https://swapi.co/api/planets/14/
+    val language: String?, // Shyriiwook
+    val name: String?, // Wookiee
+    val people: List<String?>?,
+    val skin_colors: String?, // gray
+    val url: String? // https://swapi.co/api/species/3/
 )

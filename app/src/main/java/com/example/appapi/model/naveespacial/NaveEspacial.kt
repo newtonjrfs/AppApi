@@ -1,24 +1,22 @@
 package com.example.appapi.model.naveespacial
 
-import com.example.appapi.model.film.Filmes
-
 data class NaveEspacial(
-        val MGLT: String?, // 40
-        val cargo_capacity: String?, // 6000000
-        val consumables: String?, // 2 years
-        val cost_in_credits: String?, // 8500000
-        val created: String?, // 2014-12-15T13:06:30.813000Z
-        val crew: String?, // 854
-        val edited: String?, // 2014-12-22T17:35:44.848329Z
-        val films: List<Filmes>?,
-        val hyperdrive_rating: String?, // 2.0
-        val length: String?, // 300
-        val manufacturer: String?, // Kuat Drive Yards
-        val max_atmosphering_speed: String?, // 800
-        val model: String?, // EF76 Nebulon-B escort frigate
-        val name: String?, // EF76 Nebulon-B escort frigate
-        val passengers: String?, // 75
-        val pilots: List<Any?>?,
-        val starship_class: String?, // Escort ship
-        val url: String? // https://swapi.co/api/starships/23/
+    val MGLT: String?, // 40
+    val cargo_capacity: String?, // 250000000
+    val consumables: String?, // 6 years
+    val cost_in_credits: String?, // 1143350000
+    val created: String?, // 2014-12-15T12:31:42.547000Z
+    val crew: String?, // 279144
+    val edited: String?, // 2017-04-19T10:56:06.685592Z
+    val films: List<String?>?,
+    val hyperdrive_rating: String?, // 2.0
+    val length: String?, // 19000
+    val manufacturer: String?, // Kuat Drive Yards, Fondor Shipyards
+    val max_atmosphering_speed: String?, // n/a
+    val model: String?, // Executor-class star dreadnought
+    val name: String?, // Executor
+    val passengers: String?, // 38000
+    val pilots: List<Any?>?,
+    val starship_class: String?, // Star dreadnought
+    val url: String? // https://swapi.co/api/starships/15/
 )
